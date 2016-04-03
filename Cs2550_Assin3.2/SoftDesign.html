@@ -1,0 +1,138 @@
+﻿<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Preliminary Software Design  NONONO</title>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Sudoku Model</h2>
+    <h3>Player</h3>
+    "Each player has the following attributes:"
+    <ul>
+        <li>-name:string</li>
+        <li>-age:integer</li>
+    </ul>
+
+    <h4>
+        <b>Game</b>
+        <br>
+        "Each game will have the following attributes:"
+    </h4>
+    <ul>
+        <li>
+            <b>Players:</b>
+            "one player at a time."
+        </li>
+        <li>
+            <b>Level of difficulty:</b>
+            "Expert, Hard, Easy"
+        </li>
+        <li>
+            <b>Contains</b>
+            "Every Row, Column, Box has number 1-9 containing no duplicate numbers"
+            <ul>
+                <li>
+                    <b>Rows:</b>
+                    "Contains 9 units verticall.y"
+                </li>
+                <li>
+                    <b>Culumns:</b>
+                    "Contains 9 units horizonatally."
+                </li>
+                <li>
+                    <b>Boxes:</b>
+                    "Contains 9 units: 3 horizontal units by 3 vertiaval units foraming a box"
+                </li>
+            </ul>
+        </li>
+        <li>
+            <b>Timer:</b>
+            "contains a timer that keep track of the time it takes for a player to finish the game."
+        </li>
+        <li>
+            <b>Points:</b>
+            "point are given when a row is completed."
+        </li>
+        <li>
+            <b>Marks:</b>
+            "Only three mark are given per game.  One mark is given for each mistake made."
+        </li>
+        <li>
+            <b>Hint:</b>
+            "One hint available that gives the answer to a given unit that is clicked."
+        </li>
+        <li>
+            <b>Score:</b>
+            " The total score the player receive when the game has been completed. "
+        </li>
+    </ul>
+    <h5>Function/Methods</h5>
+    <ul>
+        <li> EndGame(): Lets the player end the game when ever they choose.</li>
+        <li> NewGame(): starts a new game and prompot player for level of diffuclty. </li>
+        <li> Play(): send the player to the sudoku board to start the game, and also start the time.</li>
+        <li> StartTime(): start the timer for the game thats currently being played. </li>
+        <li> LevelOfDifficult(): set the level of diffulty depending on what the player selected. </li>
+        <li> CalculateScore(): When game is finished it calculates the score depending on the time taken to solve the game. </li>
+        <li> Marker():Stores the amount of mistakes made and when it get to 3 end the game with a loss. </li>
+        <li>
+            grid(): function to create the grid.
+            <ul>
+                <li> -9 rows, 9 columns, 9 boxes, which make 81 individual units </li>
+                <li>-Each row, column, or box contains the number 1-9 but can't have any consecutive numbers.</li>
+            </ul>
+        </li>
+    </ul>
+    <h1>Updated Check Point</h1>
+    <ul>
+        <li>Create grid for game using javascript. // finished</li>
+        <li>Create 81 individual blocks.//I ave created the boxes using loops</li>
+        <li>The the index of each cell in the grid //I can click on an indiv cells and the coordinate are diplayed below the grid</li>
+        <li>Create element like a button.  I have created buttons and they can receive data and sent it back to a textbox</li>
+        <li>The player can get feedback on incorrect numbers at any time. //Have not done</li>
+        <li>Use javascript to update value // some code is written but doesnt work quite right.</li>
+        <li>There are multiple difficulty levels and multiple puzzles to choose from in each difficulty level.//Created the radio buttons, but have not omplimented</li>
+        <li>There is a timer that tells how long the player has been working on the puzzle.//Have not done</li>
+        <li>Solutions to games posted.//Not done.</li>
+        <li>
+            Designed the model//completelty funcitonal still a working progress.
+            <ul>
+                <li>function GetCellCoord(){}//function work and get coordiantes and dsiplays it below the grid</li>
+                <li>function SudokuGrid(){}//form the sudoku grid </li>
+                <li>function SudokuBox(id, block) {} </li>
+                <li> function SudokuBlock(id){}  </li>
+                <li>
+                    //For the grid
+                    I set of boxs and blocks. and loop through them.
+                    for (var block_id = 0; block_id < this.RowColumn_Count; ++block_id) {
+                    var block = new SudokuBlock(block_id);
+                    // Add boxes to block
+                    for (var box_id = 0; box_id < this.RowColumn_Count; ++box_id) {
+                    var box = new SudokuBox(box_id, block);
+                    // Add box to block
+                    block.Boxes.push(box);
+                    // Add to all boxes
+                    this.AllBoxes.push(box);
+                    }
+                    // Add block to Blocks
+                    this.AllBlocks.push(block);
+                    }
+                    }
+                </li>
+                <li>
+                    I have another function that update
+                    // Updates the HTML element to display the current value
+                    SudokuBox.prototype.UpdateValue = function () {
+                    if (this.HtmlElement == null)
+                    return;
+                    this.HtmlElement.innerHTML = this.Value;
+                    };
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <h5>Notes:</h5>
+    "I havent included all the function that will be used for the game."
+</body>
+</html>
+

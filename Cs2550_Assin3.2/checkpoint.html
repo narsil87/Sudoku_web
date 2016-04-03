@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CheckPoint</title>
+	<meta charset="utf-8" />
+    <link href="StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Sudoku Game Logic</h2>
+    <h5>Function/Methods</h5>
+    <ul>
+        <li> EndGame(): Lets the player end the game when ever they choose.//exits otu of the game</li>
+        <li> NewGame(): when a new game is pressed the gaem will access a new gaem suign ajax//not done </li>
+        <li> Play(): send the player to the sudoku board to start the game, and also start the time.</li>
+        <li> StartTime(): start the timer for the game thats currently being played. </li>
+        <li> LevelOfDifficult(): set the level of diffulty depending on what the player selected. </li>
+        <li> CalculateScore(): When game is finished it calculates the score depending on the time taken to solve the game against the marks given<li>
+        <li> Marker():Stores the amount of mistakes made and when it get to 3 end the game with a loss. </li>
+        <li>When a game is loaded make sure the given number cannot be chagnes.  and the empty cell will only access the correct number</li>
+        <li>IncorrectInput(): if an incorrect number is input then a notice is given to the user</li>
+        <li>
+            grid(): function to create the grid.
+            <ul>
+                <li> -9 rows, 9 columns, 9 boxes, which make 81 individual units </li>
+                <li>-Each row, column, or box contains the number 1-9 but can't have any consecutive numbers.</li>
+            </ul>
+        </li>
+   </ul>
+    <ul>
+        <li>Create grid for game using javascript. // finished</li>
+        <li>Create 81 individual blocks.//I ave created the boxes using loops</li>
+        <li>The the index of each cell in the grid //I can click on an indiv cells and the coordinate are diplayed below the grid</li>
+        <li>Create element like a button.  I have created buttons and they can receive data and sent it back to a textbox</li>
+        <li>The player can get feedback on incorrect numbers at any time. //Have not done</li>
+        <li>Use javascript to update value // some code is written but doesnt work quite right.</li>
+        <li>There are multiple difficulty levels and multiple puzzles to choose from in each difficulty level.//Created the radio buttons, but have not omplimented</li>
+        <li>Solutions to games posted.//Not done.</li>
+    </ul>
+</body>
+</html>

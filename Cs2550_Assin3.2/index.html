@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Sudoku Game</title>
+    <link rel="stylesheet" href="StyleSheet1.css">
+</head>
+<body>
+    <h1>Play Sudoku</h1>
+    <ul>
+        <li>A average Sudoku puzzle contains a grid of 9 blocks.</li>
+        <li>Each block consists 9 boxes arranged in 3 rows and 3 columns.</li>
+        <li>Consider this example of an actual Sudoku puzzle:</li>
+        <li>Input user information to store scores:</li>
+    </ul>
+    <img src="Sudoku.png" width="375" height="350" alt="Sudoku Board" />
+    <h2>Where to find the tutorial</h2>
+    <ul>
+        <li><a href="http://www.sudokukingdom.com/rules.php">HTML Sudoku</a></li>
+        <!--opens a new window-->
+        <li><a href="sudoku.html" target="_blank">HTML Grid</a></li>
+        <li><a href="SoftDesign.html">HTML Software Design</a></li>
+        <li><a href="checkpoint.html">HTML Game Logic Design</a></li>
+        <li></li>< href="Ajax.html">HTML Ajax</><li></li>
+        <li><a href="Sudoku.php">PHP</a></li>
+    </ul>
+    <form action="index.html" method="post"></form>
+    <h3>Game: Level of diffulty can be chosen</h3>
+    <ul>
+        <li>Beginner</li>
+        <li>Intermediate</li>
+        <li>Difficult</li>
+    </ul>
+    <h4>  Player:Each player will have the following attributes. </h4>
+    <ul>
+        <li>User ID: string</li>
+        <li>User Score: double</li>
+        <li>User Age: int</li>
+        <li>Comments: string</li>
+        <li>Gender: char</li>
+    </ul>
+    <pre>
+        <span> class="highlight>var requist;" </span>
+        
+   </pre>
+    <h5>Player Information</h5>
+        Name: <input type='text'size=20 id="NameInput"value="Harpo" /> <br />
+        Password: <input type='password' size=20 id="PassInput"value="swordfish" /> <br />
+       <div><input type="button" name="login" id="Login" onclick="loadSyncPost()" value="Login" /></div>
+      <div><input type="button" name="xml" id="xmlLogin" onclick="loadDoc()" value="XMLogin" /></div>
+       <h2>Login Results</h2>
+       <p id="LoginR"></p>
+        Age:<input type='text' size=20 id="AgeInput" value="" /> <br />
+        <p>Are you Male or Female?:</p>
+        Gender: <select id='gender'>
+            <option value="male">male</option>
+            <option value="female">female</option>
+        </select>
+        <input type="button" name="Submit" id="Submit" onclick="submit()" value="submit"/>
+        <div id="ajaxDiv">Your result will display here</div>
+        <p><textarea rows="10" cols="10" name="comments" id="NameAndPass" value="">Name and Pass info</textarea></p>
+        <p><textarea rows="10" cols="20" name="comments" id="comBox"value="">Your comments</textarea></p>
+    <script src="Model.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

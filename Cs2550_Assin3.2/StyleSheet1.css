@@ -1,0 +1,114 @@
+﻿.mainContent {
+    background-color: #003399;
+}
+body
+{
+    background-color: #003399;
+}
+
+caption{
+   background-color:#67b932; 
+}
+
+p {
+    color: #99CC00;
+    font-size: 15px;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline;
+    color: #99CC00;
+    background-color: #99CCFF;
+    font-size: 36px;
+}
+
+h2, h3, h4, h5 {
+    text-align: left;
+    color: black;
+    font-size: 22px;
+    font-style: normal;
+    font-family:'Kozuka Gothic Pro';
+    
+}
+
+li {
+    font-size: 22px;
+    color: #99CC00;
+}
+
+a {
+    color: #99CC00;
+}
+
+textarea {
+    background-color: #99CC00;
+}
+
+input {
+    background-color: #99CC00;
+}
+select{
+     background-color: #99CC00;
+}
+tbody {
+    background-color: #99CC00;
+}
+
+.sudokuGrid {
+    width: 400px;
+    height: 400px;
+    outline: solid 2px black;
+    font-size: 1.4em;
+    background-color:#99CC00;
+}
+
+    .sudokuGrid td {
+        width: 44px;
+        height: 44px;
+        outline: solid 2px lightgray;
+        text-align: center;
+    }
+
+        .sudokuGrid td:nth-child(3n) {
+            border-right: solid 2px black;
+        }
+
+tr.tr_border td {
+    border-bottom: 1pt solid black;
+}
+p button{
+     background-color: #99CC00;
+}
+
+b:active{
+    top:14px;
+}
+div p{
+    color:black;
+}
+
+#cakeDiv{
+    height:600px;
+    width:65px;
+    position:relative;
+    top:50px;
+    left:20px;
+    right:20px;
+
+}
+#cakeImg{
+    position:absolute;
+    height:50px;
+    width:50px;
+    outline:1px solid red;
+    top:0;
+    left:0;
+    right:10px;
+    bottom:0;
+    background-image: url("IMG_0936.JPG"); 
+    transform:rotate(90deg)
+}
+button {
+     background-color: #99CC00;
+}
