@@ -7,60 +7,136 @@ function ClearLocalStorage() {
     localStorage.clear();
 }
 console.log(loadSyncPost);
-
-//function loadSyncXML() {
-//    var name = document.getElementById("userinfo.xml").value;
-//    var data = "name=" + name;
-//    var localRequest = new XMLHttpRequest();
-
-//    // PASSING false AS THE THIRD PARAMETER TO open SPECIFIES SYNCHRONOUS
-//    localRequest.open("POST", "data.php", false);
-//    localRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-//    localRequest.send(data);
-
-//    // NOTE THAT THE status WILL NOT BE 200 IF THE REQUEST IS FOR A
-//    // LOCAL FILE.
-
-//    var dataDiv = document.getElementById("userDataDiv");
-
-//    // FOR MORE INFORMATION ABOUT JSON SEE http://json.org
-//    var responseJson = JSON.parse(localRequest.responseText);
-//    dataDiv.innerHTML = "Your password is: " + responseJson["password"];
-    
-//}
 console.log(loadDoc);
 
+//play game event
+function playGameEvent() {
+    alert("play game event has been pressed been ");
+    loadSudoGame();
+
+}
+
+//loads user infor from xml file
 function loadDoc() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (xhttp.readyState == 4) {
-            myFunction(xhttp);
+            UserInfoFunct(xhttp);
         }
     };
     xhttp.open("GET", "userinfo.xml", true);
+    //alert("loadDoc_opened");
     xhttp.send();
 }
-function myFunction(xml) {
-    alert("xml pressed");
+//gets data from xmml file
+function UserInfoFunct(xml) {
+  //  alert("xml pressed");
     var i;
     var xmlDoc = xml.responseXML;
-    var table = "<tr><th>name</th><th>email</th></tr><tr><th>userid</th><th>score</th></tr>";
+    var table = "";
     var x = xmlDoc.getElementsByTagName("user");
     for (i = 0; i < x.length; i++) {
         table += "<tr><td>" +
         x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
-        "</td><td>" +
-        x[i].getElementsByTagName("email")[0].childNodes[0].nodeValue +
-        "</td></tr>";
+        "</td><td>" +" "+"<br>"+
         x[i].getElementsByTagName("userid")[0].childNodes[0].nodeValue +
-       "</td><td>" +
+        "</td></td>" + " " + "<br>" +
+        x[i].getElementsByTagName("email")[0].childNodes[0].nodeValue +
+       "</td> <td>" + " " + "<br>" +
        x[i].getElementsByTagName("score")[0].childNodes[0].nodeValue +
-       "</td></tr>";
+       "</td></tr>"+"<br>";
     }
     document.getElementById("userDataDiv").innerHTML = table;
+    document.getElementById("userNameDiv").innerHTML = table;
     window.open("sudoku.html");
 }
+function readTextFile(file, callback) {
+    var rawFile = new XMLHttpRequest();
+    rawFile.overrideMimeType("application/json");
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function () {
+        if (rawFile.readyState === 4 && rawFile.status == "200") {
+            callback(rawFile.responseText);
+        }
+    }
+    rawFile.send(null);
+}
 
+//usage:
+readTextFile("test.json", function (text) {
+    var data = JSON.parse(text);
+    console.log(data);
+});
+
+
+function LoadUserInfo() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4) {
+            LoadUSerInof(xhttp);
+        }
+    };
+   
+    xhttp.open("GET", "userinfo.xml", true);
+   // alert("sudogrid_opened");
+    xhttp.send();
+}
+
+function PlayLoadGame() {
+    resetGame();
+    LoadUserInfo();
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (xhttp.readyState == 4) {
+            PlayLoadedG(xhttp);
+        }
+    };
+
+    xhttp.open("GET", "sudokugrid.xml", true);
+    alert("sudogrid_opened");
+    xhttp.send();
+}
+function PlayLoadedG(xml) {
+    //alert("playsave game pressed");
+    var i;
+    var celID;
+    var ceVal;
+    var xmlDoc = xml.responseXML;
+    var table = "";
+    var x = xmlDoc.getElementsByTagName("CELL");
+    for (i = 0; i < x.length; i++) {
+        table += "<tr><td>" +
+        x[i].getElementsByTagName("IDX")[0].childNodes[0].nodeValue +
+        "</td><td>" + " " + "<br>" +
+        x[i].getElementsByTagName("VALUE")[0].childNodes[0].nodeValue +
+        "</td></tr>" + " " + "<br>";
+        cells[x[i].getElementsByTagName("IDX")[0].childNodes[0].nodeValue].innerHTML = x[i].getElementsByTagName("VALUE")[0].childNodes[0].nodeValue;
+    }
+    //Display all the value from the xml
+    //document.getElementById("XMLData").innerHTML = table;
+}
+function LoadUSerInof(xml) {
+    //alert("xml pressed");
+    var i;
+    var xmlDoc = xml.responseXML;
+    var table = "";
+    var x = xmlDoc.getElementsByTagName("user");
+    for (i = 0; i < x.length; i++) {
+        table += "<tr><td>" +
+        x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+        "</td><td>" +" "+"<br>"+
+        x[i].getElementsByTagName("userid")[0].childNodes[0].nodeValue +
+        "</td></td>" + " " + "<br>" +
+        x[i].getElementsByTagName("email")[0].childNodes[0].nodeValue +
+       "</td> <td>" + " " + "<br>" +
+       x[i].getElementsByTagName("score")[0].childNodes[0].nodeValue +
+       "</td></tr>"+"<br>";
+    }
+    document.getElementById("userNameDiv").innerHTML = table;
+}
+
+
+//valdiates user id and password
 function loadSyncPost() {
    alert("login pressed");
     var name = document.getElementById("NameInput").value;
@@ -93,10 +169,6 @@ function loadSyncPost() {
     }
 }
 
-//play game event
-function playGameEvent() {
-    alert("play game event has been pressed been ");
-}
 
 //
 function cellClickedEvent(cell) {
@@ -107,7 +179,7 @@ function cellClickedEvent(cell) {
 
 
 function resetGame() {
-    alert("reset called");
+    //alert("reset called");
     for (var i = 0; i < cells.length; i++) {
         cells[i].innerHTML = '&nbsp;';
     }
@@ -189,7 +261,7 @@ function moveCake() {
     }
 }
 
-//}
+
 function moveup() {
     alert("move up");
     var cakeImg = document.getElementById("cakeImg");

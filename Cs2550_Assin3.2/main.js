@@ -32,7 +32,6 @@ function SudokuBox(id, block) {
     this.Block = block;
     this.HtmlElement = null;
     this.UniqueId = this.Id + '_' + this.Block.Id;
-
     this.Value = 0;
 }
 // Updates the HTML element to display the current value
@@ -42,7 +41,19 @@ SudokuBox.prototype.UpdateValue = function () {
 
     this.HtmlElement.innerHTML = this.Value;
 };
+//function cellClickedEvent(cell) {
+//    alert("cell click");
+//    cell.innerHTML = '3';
+//    box.HtmlElement = cell[i];
+//}
 
+
+//function resetGame() {
+//    alert("reset called");
+//    for (var i = 0; i < cells.length; i++) {
+//        cells[i].innerHTML = '&nbsp;';
+//    }
+//}
 
 
 function SudokuBlock(id) {
@@ -52,9 +63,9 @@ function SudokuBlock(id) {
 
 //get coordinate of cell and changes the cell value
 function GetCellCoord(cell) {
-    var x = cell.cellIndex;
-    var y =cell.parentNode.rowIndex;
-    document.getElementById("DisCelCoor").innerHTML = y + "_" + x;
+    var colNum = cell.cellIndex;
+    var rowNum =cell.parentNode.rowIndex;
+    document.getElementById("DisCelCoor").innerHTML = rowNum + "_" + colNum;
     cell.innerHTML = cell.cellIndex;
     box.HtmlElement = cell[i];
 }

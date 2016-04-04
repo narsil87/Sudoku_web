@@ -5,7 +5,6 @@
     <link href="StyleSheet1.css" rel="stylesheet" />
 </head>
 <body onload="moveCake" onkeyup="moveImg(event)">
-    <p id="userDataDiv"></p>
     <h1>Sudoku Grid</h1>
     <a href=""class="smooth">Sudoku Grid</a>
     <div id-"cakeDive></div>
@@ -14,23 +13,23 @@
     </div>
     <p><button onclick="moveCake()">Move Image Down</button> </p>
     <p><button onclick="moveup()">Move Image Up</button> </p>
-
+    <p id="userNameDiv"></p>
     <table id="mainGrid" class="sudokuGrid">
         <caption>Sudoku Game Example</caption>
     </table>
- 
     <br />
+    <p id="userDataGrid"></p>
     <h2>Cell Coordinates</h2>
     <p id="DisCelCoor"></p>
-    <p id="userNameDiv"></p>
+    <p id="XMLData"></p>
     <p>Choose Level of Diffuclty</p>
     <p><input type="radio" name="Level of Difficulty" value="Beginning" checked> Beginning</p>
     <p><input type="radio" name="Level of Difficulty" value="Intermediate" checked> Intermediate</p>
     <p><input type="radio" name="Level of Difficulty" value="Difficult" checked> Difficult</p>
     <button onclick="playGameEvent()">Play Game</button>
     <button onclick="resetGame()">Reset Game</button>
-    <button onclick="testBlockOne()">Do something</button>
     <button onclick="ClearLocalStorage()">Clear Local Storage</button> 
+    <button onclick="PlayLoadGame()">Load Saved Game</button> 
     <script src="main.js"></script>
     <script src="Model.js"></script>
 </body>

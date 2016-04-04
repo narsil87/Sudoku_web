@@ -1,15 +1,17 @@
-<?xml version='1.0' encoding="UTF-8"?>
+<?xml version='1.0' encoding='us-ascii'?> 
+<DATA>
 <user>
-   <name>Leslie</name>
-   <email>Mark@hotmail.com</email>
-   <userid>Les45</userid>
-   <score>15,000</score>	
+<name>Name: Leslie</name>
+<userid>User ID: Les45</userid>
+<email>Email: Les@hotmail.com</email>
+<score>Score: 15,000</score>
 </user>
 <user>
-   <name>Mark</name>
-   <email>Mark@hotmail.com</email>
-   <userid>Mark87</userid>
-   <score>87,000</score>	
-</user>	
+<name>Name: Mark</name>
+<userid>User ID: Mark87</userid>
+<email>Email: Mark@hotmail.com</email>
+<score>Score: 87,000</score>
+</user>
+</DATA>
 
 		
